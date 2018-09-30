@@ -1,0 +1,52 @@
+<html>
+<body>
+	<head>
+		<meta charset="utf-8">
+		<title>Github Searching</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	</head>
+	
+	<div class=container>
+		<div class="header">
+			<img src="img\Zx-ventures_logo.png" width="500" margin-left="auto" margin-right="auto";/>
+		</div>
+		<div id="contents">
+			<a href="index.html"> HOME</a><br><br>
+			<form id="form_usu">
+				<label for="usu_git">Informe seu usuário: </label>
+				<input type="text" id="user" required="required" placeholder="Digite nome do usuário"/>
+				<input type="submit" name="enviar" id="btn_enviar">
+			</form>
+
+			<table cellpadding="10" border="2">
+				<thead>
+					<tr>
+						<td width="400px">Imagem do avatar</td>
+						<td width="200px">Número de seguidores</td>
+						<td width="180px">Número de seguidos</td>
+						<td width="400px">E-mail</td>
+						<td>Bio</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><img id="avatar_url"></td>
+						<td><span id="followers"></span></td>
+						<td><span id="following"></span> </td>
+						<td><span id="email"></span></td>
+						<td><span id="bio"></span></td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<div id="listarRepo">
+				<button id="btn_list">Listar Repositórios</button>
+				<br>
+				<div id="repositories" class="hide"></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="JScript.js"></script>
+</html>
