@@ -16,7 +16,8 @@ $( "#form_usu" ).submit(function() {
 			method: "GET",
 			url: "https://api.github.com/users/"+user+"/repos",
 		}).done(function(result) {
-	
+
+			$('#repositories').empty();
 			for(i in result) {
 				var repositories = result[i];
 				console.log(result[i]);
@@ -27,4 +28,10 @@ $( "#form_usu" ).submit(function() {
 	return false;
 });
 
-// Limpar repositórios quando realizar nova pesquisa
+$('#btn_list').click(function() {
+	if($('#repositories').hasClass('hide')) {
+		$('#repositories').removeClass('hide');
+	} else {
+		$('#repositories').addClass('hide');
+	}
+});
