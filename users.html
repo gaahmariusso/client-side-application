@@ -6,53 +6,51 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	</head>
-	
-	<div class=container>
-		<div class="header">
-			<img src="img\Zx-ventures_logo.png" width="500" margin-left="auto" margin-right="auto";/>
-		</div>
-		<div id="contents">
-			<a href="index.html"> HOME</a><br><br>
-			<form id="form_usu">
-				<label for="usu_git">Informe seu usuário: </label>
-				<input type="text" id="user" required="required" placeholder="Digite nome do usuário"/>
-				<button type="submit" id="btn_search">&#128269;</button>
-<!-- 				<div id="myModal" class="modal">
-					<div class="modal-content">
-				    <span class="close">&times;</span>
-				    <p>Usuário Inválido !</p>
-				  </div>
-				</div> -->
-			</form>
+	<div class="header">
+		<a href="users.html" id="logo" class="align-center"><img src="img\Zx-ventures_logo.png" width="300" margin-left="auto" margin-right="auto";/></a>
+	</div>
+	<div id="contents">
+		<form id="form_usu">
+			<label for="usu_git">Informe seu usuário: </label>
+			<input type="text" id="user" required="required" placeholder="Digite nome do usuário"/>
+			<button type="submit" id="btn_search">&#128269;</button>
+			<div id="error404" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>Usuário Inválido !</p>
+				</div>
+			</div>
+			<div id="error403" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>Número de tentativas foi excedido !</p>
+				</div>
+			</div>
+		</form>
 
-			<table cellpadding="10" border="2">
-				<thead>
-					<tr>
-						<td width="400px">Imagem do avatar</td>
-						<td width="200px">Número de seguidores</td>
-						<td width="180px">Número de seguidos</td>
-						<td width="400px">E-mail</td>
-						<td>Bio</td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><img id="avatar_url"></td>
-						<td><span id="followers"></span></td>
-						<td><span id="following"></span> </td>
-						<td><span id="email"></span></td>
-						<td><span id="bio"></span></td>
-					</tr>
-				</tbody>
-			</table>
-			<br>
-			<div id="listarRepo">
-				<button id="btn_list">Listar Repositórios</button>
-				<br>
-				<div id="repositories" class="hide"></div>
+		<div class="row" id="users">
+			<div id="column-1" class="hide">
+				<div class="card">
+					<div id="avatar-img"><img id="avatar_url"></div>
+					<div class="container">
+						<h4 id="name"></h4>
+						<p class="title">Número de seguidores:<span class="title" id="followers"></span></p>
+						<p class="title">Número de seguidos:<span class="title" id="following"></span></p>
+						<p id="bio"></p>
+						<p id="email"></p>
+						<div id="listarRepo">
+						<button class="btn_list" id="btn_list">Listar Repositórios</button>					
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="column-2" class="hide">
+				<div class="card">
+					<div id="repositories"></div>
+				</div>
 			</div>
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="JScript.js"></script>
+<script type="text/javascript" src="javascript/user.js"></script>
 </html>
