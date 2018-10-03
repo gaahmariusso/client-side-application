@@ -114,6 +114,9 @@ a:link{
 	height: 418px;
 	overflow: auto;
 }
+#repo_detail, h2{
+    padding: 10px 5px 0 5px;
+}
 .modal {
     display: none;
     position: fixed;
