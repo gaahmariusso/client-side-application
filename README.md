@@ -4,7 +4,7 @@ Criada uma aplicação client-side, consultando a API do GitHub e mostrando os r
 
 HTML
 
-users.html -> Tela inicial contém um campo para buscar usuário. Assim que o mesmo é informado, será gerada uma bio, com informações de: nome, número de seguidores, número de seguidos, imagem do avatar, bio e um botão Listar Repositórios. Quando executado esse botão, é listado todos os repositórios (ordenados pelo número decrescente de estrelas) do GitHub do usuário em questão. Essa lista é alterável, e pode ser reordenada de forma ascendente ou decrescente, fazendo o uso de dois botões logo abaixo.
+users.html -> Tela inicial contém um campo para buscar usuário. Assim que o mesmo é informado, é gerada uma bio, com informações de: nome, número de seguidores, número de seguidos, imagem do avatar, bio e um botão Listar Repositórios. Quando esse botão é executado, é listado todos os repositórios (ordenados pelo número decrescente de estrelas) do GitHub do usuário em questão. Essa lista é alterável, e pode ser reordenada de forma ascendente ou decrescente, fazendo o uso de dois botões logo abaixo.
 Obs: Todos os repositórios listados contém um hiperlink, que direciona para a próxima página: Detalhes do repositório.
 
 repository.html -> Esta página contém as informações do repositório clicado, como: nome, descrição, número de estrelas, linguagem de programação e um link externo, que direciona para a página do repositório no GitHub.
