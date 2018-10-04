@@ -1,0 +1,77 @@
+*,html{
+    padding:0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+body{
+    background: #eaeaea;
+    font-family: Verdana;
+}
+label{ 
+    display:block; 
+    font-weight: bold;
+    font-size: 1em;
+}
+input{ 
+    font-size: 1em;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+a:link{ 
+    text-decoration: none; 
+}
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+@media (min-width: 1170px) {
+    .container {
+        max-width: 1170px;
+        padding: 0;
+    }
+}
+.header {
+    background: #ccc;
+    border: 1px solid #aaa;
+    padding: 10px;
+}
+.align-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    min-width: 100%;
+}
+.row {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+    .row:before,
+    .row:after {
+        content: "";
+        display: table;
+    }
+    .row:after {
+        clear: both;
+    }
+
+    @media (min-width: 481px) {
+        .col-3 {
+            width: 50%;
+            padding: 10px 10px 10px 10px;
+    }    
+}
+h4{
+    padding: 20px;
+}
+p{
+    font-size: 20px;
+    padding: 20px;
+}
+#repo_detail, h2{
+    
+}

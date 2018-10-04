@@ -1,26 +1,24 @@
 <html>
+<head>
+	<meta charset="utf-8">
+	<title>Github Searching</title>
+	<link rel="stylesheet" type="text/css" href="css/repository.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
 <body>
-	<head>
-		<meta charset="utf-8">
-		<title>Github Searching</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	</head>
-	<div class="header">
-		<a href="users.html" id="logo" class="align-center"><img src="img\Zx-ventures_logo.png" width="300" margin-left="auto" margin-right="auto";/></a>
-	</div>
-	<div id="contents">
-		<div class="row" id="users">
-			<div class="column-3">
-				<div class="card_repo">
-					<div id="repo_detail"></div>
-					<h1>Detalhes do repositório:</h1>
-					<h2 id="name"></h2>
-					<h2 class="title">Descrição:<span class="title" id="description"></span></h2>
-					<h2 class="title">Número de estrelas:<span class="title" id="stargazers_count"></span></h2>
-					<h2 class="title">Linguagem:<span class="title" id="language"></span></h2>
-					<a href="html_url"></a><p id="html_url"></p>
-				</div>
+	<div class="container">
+		<div class="header">
+			<a href="users.html" id="logo" class="align-center"><img src="img\Zx-ventures_logo.png" width="300" margin-left="auto" margin-right="auto";/></a>
+		</div>
+		<div class="row">
+			<div class="col-3">
+				<div id="repo_detail"></div>
+				<h2>Detalhes do repositório:</h2>
+				<h3 id="name"></h3>
+				<p class="title">Descrição:<span class="text" id="description"></span></p>
+				<p class="title">Número de estrelas:<span class="number" id="stargazers_count"></span></p>
+				<p class="title">Linguagem:<span class="text" id="language"></span></p>
+				<a href="html_url"></a><p id="html_url"></p>
 			</div>
 		</div>
 	</div>

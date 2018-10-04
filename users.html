@@ -1,52 +1,57 @@
 <html>
+<head>
+	<meta charset="utf-8">
+	<title>Github Searching</title>
+	<link rel="stylesheet" type="text/css" href="css/user.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
 <body>
-	<head>
-		<meta charset="utf-8">
-		<title>Github Searching</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	</head>
-	<div class="header">
-		<a href="users.html" id="logo" class="align-center"><img src="img\Zx-ventures_logo.png" width="300" margin-left="auto" margin-right="auto";/></a>
-	</div>
-	<div id="contents">
-		<form id="form_usu">
-			<label for="usu_git">Informe seu usuário: </label>
-			<input type="text" id="user" required="required" placeholder="Digite nome do usuário"/>
-			<button type="submit" id="btn_search">&#128269;</button>
-			<div id="error404" class="modal">
-				<div class="modal-content">
-					<span class="close">&times;</span>
-					<p>Usuário Inválido !</p>
-				</div>
+	<div class="container">
+		<div class="header">
+			<a href="users.html" id="logo" class="align-center"><img src="img\Zx-ventures_logo.png" width="300" margin-left="auto" margin-right="auto";/></a>
+		</div>
+		<div class="row">
+			<div class="col">
+				<form id="form_usu">
+					<label for="usu_git">Informe seu usuário: </label>
+					<input type="text" id="user" required="required" placeholder="Digite nome do usuário"/>
+					<button type="submit" id="btn_search">&#128269;</button>
+					<div id="error404" class="modal">
+						<div class="modal-content">
+							<span class="close">&times;</span>
+							<p>Usuário Inválido !</p>
+						</div>
+					</div>
+					<div id="error403" class="modal">
+						<div class="modal-content">
+							<span class="close">&times;</span>
+							<p>Número de tentativas foi excedido !</p>
+						</div>
+					</div>
+				</form>
 			</div>
-			<div id="error403" class="modal">
-				<div class="modal-content">
-					<span class="close">&times;</span>
-					<p>Número de tentativas foi excedido !</p>
-				</div>
-			</div>
-		</form>
-
-		<div class="row" id="users">
-			<div id="column-1" class="hide">
-				<div class="card">
-					<div id="avatar-img"><img id="avatar_url"></div>
-					<div class="container">
-						<h4 id="name"></h4>
+		</div>
+		<div class="row">
+			<div class="col col-2">
+				<div id="hide_usu" class="hide">
+					<div class="card-1" id="users">
+						<div id="avatar-img"><img id="avatar_url" style="width:100%"></div>
+						<h2 id="name"></h2>
 						<p class="title">Número de seguidores:<span class="title" id="followers"></span></p>
 						<p class="title">Número de seguidos:<span class="title" id="following"></span></p>
 						<p id="bio"></p>
 						<p id="email"></p>
 						<div id="listarRepo">
-						<button class="btn_list" id="btn_list">Listar Repositórios</button>					
+							<button class="btn_list" id="btn_list">Listar Repositórios</button>					
 						</div>
 					</div>
 				</div>
 			</div>
-			<div id="column-2" class="hide">
-				<div class="card">
-					<div id="repositories"></div>
+			<div class="col col-2">
+				<div id="hide_repo" class="hide">
+					<div class="card-2">
+						<div id="repositories"></div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -41,18 +41,19 @@ $( "#form_usu" ).submit(function() {
 	}).done(function(result) {
 
 		$("#name").text(result.name);
-		$("#avatar_url").attr("src",result.avatar_url).attr("height",150);
+		$("#avatar_url").attr("src",result.avatar_url).attr("width:100%");
 		$("#followers").text(result.followers);
 		$("#following").text(result.following);
 		$("#email").text(result.email);
 		$("#bio").text(result.bio);
+		$("#repos_url").text(result.repos_url);
 
 		$.ajax({
 			method: "GET",
 			url: "https://api.github.com/users/"+user+"/repos",
 		}).done(function(result) {
 
-			$("#fullname").text(result.full_name); // enviar para repository.js
+			$("#fullname").text(result.full_name);
 			result.sort(function(a,b){
 				return b.stargazers_count - a.stargazers_count;
 			});
@@ -61,43 +62,29 @@ $( "#form_usu" ).submit(function() {
 			for(i in result) {
 				var repositories = result[i];
 				console.log(result[i]);
-				$('#repositories').append("<ul><li><span id='repos_url'> <a target='_blank' href='repositories.html'>"+result[i].name+"</a></span>"+ '	|	' +"<a href='#' class='reorder-up'>Up</a> <a href='#' class='reorder-down'>Down</a></li></ul>");
+				$('#repositories').append("<ul><li><span id='repos_url'> <a id='display_repo' href='repositories.html'>"+result[i].name+"</a></span></li></ul>");
 			}
 		});
 	});
 	return false;
 });
 
+$('a#display_repo').click(function() {
+	
+});
+
 $('#btn_search').click(function() {
-	if($('#column-1').hasClass('hide')) {
-		$('#column-1').removeClass('hide');
+	if($('#hide_usu').hasClass('hide')) {
+		$('#hide_usu').removeClass('hide');
 	} else {
-		$('#column-1').addClass('hide');
+		$('#hide_usu').addClass('hide');
 	}
 });
 
 $('#btn_list').click(function() {
-	if($('#column-2').hasClass('hide')) {
-		$('#column-2').removeClass('hide');
+	if($('#hide_repo').hasClass('hide')) {
+		$('#hide_repo').removeClass('hide');
 	} else {
-		$('#column-2').addClass('hide');
+		$('#hide_repo').addClass('hide');
 	}
-});
-
-$(".reorder-up").click(function(){
-  var $current = $(this).closest('li')
-  var $previous = $current.prev('li');
-  if($previous.length !== 0){
-    $current.insertBefore($previous);
-  }
-  return false;
-});
-
-$(".reorder-down").click(function(){
-  var $current = $(this).closest('li')
-  var $next = $current.next('li');
-  if($next.length !== 0){
-    $current.insertAfter($next);
-  }
-  return false;
 });
