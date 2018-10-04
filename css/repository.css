@@ -61,9 +61,15 @@ a:link{
 
     @media (min-width: 481px) {
         .col-3 {
-            width: 50%;
+            width: 100%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            background: #eaeaea;
             padding: 10px 10px 10px 10px;
     }    
+}
+h3{
+    margin-top: 10px;
+    padding: 20px;
 }
 h4{
     padding: 20px;
@@ -72,6 +78,10 @@ p{
     font-size: 20px;
     padding: 20px;
 }
-#repo_detail, h2{
-    
+.title {
+    font-family: "Tahoma", "Geneva", "sans-serif";
+    color: black;
+}
+a{
+    padding: 20px;
 }

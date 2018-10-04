@@ -1,50 +1,30 @@
-$( "#form_usu" ).submit(function() {
-	
-	var user = $('#form_usu #user').val();
-	$.ajax({
-		method: "GET",
-		url: "https://api.github.com/users/"+user,
+$(document).ready(function () {
+    params 		= getParams();
+    repository 	= params.repository;
+    user 		= params.user;
 
-	}).done(function(result) {
-
-		$("#name").text(result.name);
-		$("#avatar_url").attr("src",result.avatar_url).attr("height",150);
-		$("#followers").text(result.followers);
-		$("#following").text(result.following);
-		$("#email").text(result.email);
-		$("#bio").text(result.bio);
-
-		$.ajax({
-			method: "GET",
-			url: "https://api.github.com/users/"+user+"/repos",
-		}).done(function(result) {
-
-			$("#fullname").text(result.full_name);
-			console.log(result);
-		});
-	});
-	return false;
+    $.ajax({
+        method: "GET",
+        url: "https://api.github.com/repos/"+user+"/"+repository
+    }).done(function (result) {
+        $("#name").text(result.name);
+        $("#description").text(result.description);
+        $("#stargazers_count").text(result.stargazers_count);
+        $("#language").text(result.language);
+        $("#html_url").text(result.html_url).val();
+    });
 });
 
-$( "#repo_detail" ).click(function openWindow() {
-	
-	var full_name = document.getElementById("fullname").val();
-	$.ajax({
-		method: "GET",
-		url: "https://api.github.com/repos/"+full_name,
-	}).done(function(result) {
+function getParams() {
 
-		console.log(full_name);
-		$("#name").text(result.name);
-		$("#description").text(result.description);
-		$("#stargazers_count").text(result.stargazers_count);
-		$("#language").text(result.language);
-		$("#html_url").text(result.html_url);
-		});
-	return false;
-});
+    var params = {},
+        pairs = document.URL.split('?')
+        .pop()
+        .split('&');
 
-// $(repositories).on('click',function(){
-//     $('#repo_detail').show(); // aparece o div
-//     window.open(repositories.html,'_blank'); // abre nova janela
-// });
+    for(var i = 0, p; i < pairs.length; i++) {
+        p = pairs[i].split('=');
+        params[p[0]] = p[1];
+    }
+    return params;
+}

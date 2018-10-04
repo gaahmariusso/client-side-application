@@ -60,17 +60,24 @@ $( "#form_usu" ).submit(function() {
 			console.log(result);
 			$('#repositories').empty();
 			for(i in result) {
-				var repositories = result[i];
-				console.log(result[i]);
 				$('#repositories').append("<ul><li><span id='repos_url'> <a id='display_repo' href='repositories.html'>"+result[i].name+"</a></span></li></ul>");
+				document.getElementById("display_repo").href='repositories.html?repository='+result[i].name+'&user='+user
 			}
+			// repositories.sort(function(x,y) {
+			// 	return x < y; // retorna array em ordem decrescente
+			// });
+			// 	$('#repositories').click('#btn_desc').append("<span id='repos_desc'>"+result[i].name+"</a></span>");
+
+			// repositories.sort(function(x,y) {
+			// 	return x > y; // retorna array em ordem decrescente
+			// });
+			// 	$('#btn_asc').append("<span id='repos_asc'>"+result[i].name+"</a></span>");
 		});
 	});
 	return false;
 });
 
 $('a#display_repo').click(function() {
-	
 });
 
 $('#btn_search').click(function() {
