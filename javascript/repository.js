@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    params 		= getParams();
-    repository 	= params.repository;
-    user 		= params.user;
+    params      = getParams();
+    repository  = params.repository;
+    user        = params.user;
 
     $.ajax({
         method: "GET",
@@ -11,7 +11,7 @@ $(document).ready(function () {
         $("#description").text(result.description);
         $("#stargazers_count").text(result.stargazers_count);
         $("#language").text(result.language);
-        $("#html_url").text(result.html_url).val();
+        $("#html_url").text(result.html_url.split('/').pop(-1)).attr('href',result.html_url);
     });
 });
 
