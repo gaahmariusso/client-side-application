@@ -1,6 +1,9 @@
+var backpRepositories;
+var user;
+
 $( "#form_usu" ).submit(function() {
 	
-	var user = $('#form_usu #user').val();
+	 user = $('#form_usu #user').val();
 	$.ajax({
 		method: "GET",
 		url: "https://api.github.com/users/"+user,
@@ -10,15 +13,15 @@ $( "#form_usu" ).submit(function() {
 				var btn = document.getElementById("btn_search");
 				var span = document.getElementsByClassName("close")[0];
 				btn.onclick = function() {
-    			modal.style.display = "block";
+					modal.style.display = "block";
 				}
 				span.onclick = function() {
-    			modal.style.display = "none";
+					modal.style.display = "none";
 				}
 				window.onclick = function(event) {
-				    if (event.target == modal) {
-				        modal.style.display = "none";
-				    }
+					if (event.target == modal) {
+						modal.style.display = "none";
+					}
 				}
 			},
 			403: function(request, status, error) {
@@ -57,28 +60,46 @@ $( "#form_usu" ).submit(function() {
 			result.sort(function(a,b){
 				return b.stargazers_count - a.stargazers_count;
 			});
-			console.log(result);
-			$('#repositories').empty();
-			for(i in result) {
-				$('#repositories').append("<ul><li><span id='repos_url'> <a id='display_repo' href='repositories.html'>"+result[i].name+"</a></span></li></ul>");
-				document.getElementById("display_repo").href='repositories.html?repository='+result[i].name+'&user='+user
-			}
-			// repositories.sort(function(x,y) {
-			// 	return x < y; // retorna array em ordem decrescente
-			// });
-			// 	$('#repositories').click('#btn_desc').append("<span id='repos_desc'>"+result[i].name+"</a></span>");
+			
+			showRepositories(result);
+			backpRepositories = result;
 
-			// repositories.sort(function(x,y) {
-			// 	return x > y; // retorna array em ordem decrescente
-			// });
-			// 	$('#btn_asc').append("<span id='repos_asc'>"+result[i].name+"</a></span>");
 		});
 	});
 	return false;
 });
 
+function showRepositories(repo,ordem='asc') {
+	
+	if(ordem == 'asc') {
+		repo.sort(function(a, b){
+			return a.id - b.id;
+		});
+	} else {
+		repo.sort(function(a, b){
+			return b.id - a.id;
+		});
+	}
+	console.log(repo);
+	
+	$('#repositories').empty();
+	for(i in repo ) {
+		$('#repositories').append("<ul><li><span id='repos_url'> <a id='display_repo_"+[i]+"' href='repositories.html'>"+repo[i].name+"</a></span></li></ul>");
+		document.getElementById("display_repo_"+[i]).href='repositories.html?repository='+repo[i].name+'&user='+user
+	}
+}
+
 $('a#display_repo').click(function() {
 });
+
+$('#btn_asc').click(function() {
+	showRepositories(backpRepositories,'asc');
+});
+
+$('#btn_desc').click(function() {
+	showRepositories(backpRepositories,'desc');
+});
+
 
 $('#btn_search').click(function() {
 	if($('#hide_usu').hasClass('hide')) {
